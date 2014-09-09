@@ -1,0 +1,3 @@
+class BlogPost < Event
+  
+end

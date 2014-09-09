@@ -5,3 +5,31 @@
 .fc-event {
   color: #fff !important; 
 }
+.fc-month-view .fc-time{
+  display : none;
+}
+.recurrence {
+  background-color: grey !important;
+  border: 1px solid grey !important;
+}
+.event {
+  
+}
+.tweet {
+  background-image: url(/assets/twitter16.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+.blog_post {
+  background-image: url(/assets/blog.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+.recurrence:hover {
+  background-color: #000 !important; 
+}
+.event:hover {
+  background-color: #000 !important; 
+}

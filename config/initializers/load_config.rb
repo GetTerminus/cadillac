@@ -1,0 +1,1 @@
+ENV.update YAML.load_file("config/templates.yml")[Rails.env]

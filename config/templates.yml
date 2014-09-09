@@ -1,0 +1,9 @@
+development: &development
+  blog_post_template: ""
+  tweet_template: ""
+  
+test:
+  <<: *development
+
+production:
+  <<: *development
