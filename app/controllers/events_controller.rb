@@ -14,7 +14,28 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    edit = false
+    if !params[:recurrence].blank?
+      recurrence = Recurrence.find(params[:recurrence])
+      if !recurrence.nil?
+        @event = (Object.const_get recurrence.event_class_name).new
+        @event.recurrence_id = recurrence.id
+        edit = true
+      end
+    end
+    if !edit
+      @event = Event.new
+    end
+    if !params[:date].blank?
+      date = Date.parse(params[:date])
+      @event.start_at = date
+      @event.end_at = date
+      edit = true
+    end
+    if edit
+      @event.save
+      redirect_to :action => 'edit', :id => @event.id
+    end
   end
 
   # GET /events/1/edit
@@ -28,7 +49,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to @event.becomes(Event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -42,7 +63,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event.becomes(Event), notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }

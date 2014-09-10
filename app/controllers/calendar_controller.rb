@@ -11,7 +11,8 @@ class CalendarController < ApplicationController
     @recurrence_events = []
     @recurrences = Recurrence.where("start_at <= ?", Date.parse(end_date))
     @recurrences.each do |recurrence|
-      @recurrence_events = @recurrence_events | recurrence.calendar_events(Date.parse(start_date), Date.parse(end_date))
+      new_recurrence_events = recurrence.calendar_events(Date.parse(start_date), Date.parse(end_date))
+      @recurrence_events = @recurrence_events | new_recurrence_events.reject{ |r| !@events.select{ |e| e.recurrence_id == r[:id] && e.start_at == r[:start_date] }.empty? }
     end
   end
 end
