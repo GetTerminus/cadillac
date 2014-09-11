@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require ../../../vendor/assets/javascripts/moment.min
+//= require ../../../vendor/assets/javascripts/bootstrap.min
 //= require ../../../vendor/assets/javascripts/fullcalendar

@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('#calendar').fullCalendar({
         events: '/data.json',
         eventRender: function(event, element) {
-            $('#edit-container').append("<div id='" + event.id + "' class='edit-popup hide'></div>");
+            $('#edit-container').append("<div id='" + event.id + "' class='edit-popup'></div>");
         },
         eventClick: function(event) {
             $('.edit-popup').hide();
@@ -17,6 +17,9 @@ $(document).ready(function() {
                 });
                 return false;
             }
+        },
+        eventAfterAllRender: function(view) {
+          $('#calendar_container').css('height', view.height + 600); 
         }
     })
 

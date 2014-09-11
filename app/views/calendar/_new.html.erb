@@ -1,19 +1,24 @@
-<div class="close-action"><a href="javascript:$('.edit-popup').hide();$('#edit-container').hide();">x</a></div>
-<h3>Complete <%= recurrence.event_class_name %> for <%= date %></h3>
-
-<%= form_tag(calendar_create_path(), :method => :post) do %>
-  <%= hidden_field_tag "recurrence_id", recurrence.id %>
-  <%= hidden_field_tag "date", date %>
-
-  <div class="field">
-    Title<br>
-    <%= text_field_tag :title %>
+<div class="ibox">
+  <div class="ibox-title">
+    <div class="close-action"><a href="javascript:$('.edit-popup').hide();$('#edit-container').hide();">x</a></div>
+    Complete <%= recurrence.event_class_name %> for <%= date %>
   </div>
-  <div class="field">
-    Description<br>
-    <%= text_area_tag :description %>
+  <div class="ibox-content">
+  <%= form_tag(calendar_create_path(), :method => :post) do %>
+    <%= hidden_field_tag "recurrence_id", recurrence.id %>
+    <%= hidden_field_tag "date", date %>
+
+    <div class="field">
+      Title<br>
+      <%= text_field_tag :title %>
+    </div>
+    <div class="field">
+      Description<br>
+      <%= text_area_tag :description %>
+    </div>
+    <div class="actions">
+      <%= submit_tag %>
+    </div>  
+  <% end %>
   </div>
-  <div class="actions">
-    <%= submit_tag %>
-  </div>  
-<% end %>
+</div>
