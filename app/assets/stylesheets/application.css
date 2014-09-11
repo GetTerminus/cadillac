@@ -14,3 +14,16 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_self
  */
+
+.alert {
+  text-align: center;
+  color: white;
+}
+.notice {
+  text-align: center;
+  color: white;
+}
+.signin-container {
+  width: 400px;
+  margin: 0 auto;
+}

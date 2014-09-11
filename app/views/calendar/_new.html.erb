@@ -4,20 +4,24 @@
     Complete <%= recurrence.event_class_name %> for <%= date %>
   </div>
   <div class="ibox-content">
-  <%= form_tag(calendar_create_path(), :method => :post) do %>
+  <%= form_tag(calendar_create_path(), :method => :post, class: "form") do %>
     <%= hidden_field_tag "recurrence_id", recurrence.id %>
     <%= hidden_field_tag "date", date %>
 
-    <div class="field">
-      Title<br>
-      <%= text_field_tag :title %>
+    <div class="form-group">
+      <label>Title</label>
+      <%= text_field_tag :title, nil, class: "form-control" %>
     </div>
-    <div class="field">
-      Description<br>
-      <%= text_area_tag :description %>
+    <div class="form-group">
+      <label>Description</label>
+      <%= text_area_tag :description, nil, class: "form-control" %>
     </div>
-    <div class="actions">
-      <%= submit_tag %>
+    <div class="form-group">
+      <label>Publish URL</label>
+      <%= text_field_tag :publish_url, nil, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag :submit, class: "btn btn-sm btn-primary" %>
     </div>  
   <% end %>
   </div>

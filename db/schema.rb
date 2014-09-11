@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910150526) do
+ActiveRecord::Schema.define(version: 20140911034753) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140910150526) do
     t.integer  "recurrence_id"
     t.integer  "account_id"
     t.integer  "owner_id"
+    t.string   "publish_url"
   end
 
   create_table "recurrences", force: true do |t|

@@ -4,23 +4,27 @@
     Edit <%= event.class.name %> for <%= date %>
   </div>
   <div class="ibox-content">
-  <%= form_tag(calendar_update_path(), :method => :post) do %>
+  <%= form_tag(calendar_update_path(), :method => :post, class: "form") do %>
     <%= hidden_field_tag "event_id", event.id %>
 
-    <div class="field">
-      Title<br>
-      <%= text_field_tag :title, event.title %>
+    <div class="form-group">
+      <label>Title</label>
+      <%= text_field_tag :title, event.title, class: "form-control" %>
     </div>
-    <div class="field">
-      Description<br>
-      <%= text_area_tag :description, event.description %>
+    <div class="form-group">
+      <label>Description</label>
+      <%= text_area_tag :description, event.description, class: "form-control" %>
     </div>
-    <div class="field">
-      Date<br>
-      <%= date_select :date, :part, selected: event.start_at %>
+    <div class="form-group">
+      <label>Publish URL</label>
+      <%= text_field_tag :publish_url, event.publish_url, class: "form-control" %>
     </div>
-    <div class="actions">
-      <%= submit_tag %>
+    <div class="form-group">
+      <label>Date</label>
+      <%= date_select :date, :part, selected: event.start_at, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag :submit, class: "btn btn-sm btn-primary" %>
     </div>
   <% end %>
   </div>

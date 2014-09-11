@@ -41,6 +41,7 @@ class CalendarController < ApplicationController
       @event.owner_id = current_user.id
       @event.title = params[:title]
       @event.description = params[:description]
+      @event.publish_url = params[:publish_url]
       @event.save
       #TODO: to correct month
       redirect_to root_path
@@ -63,6 +64,7 @@ class CalendarController < ApplicationController
     @event.end_at = date
     @event.title = params[:title]
     @event.description = params[:description]
+    @event.publish_url = params[:publish_url]
     @event.save
     #TODO: to correct month
     redirect_to root_path
