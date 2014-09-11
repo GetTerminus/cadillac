@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -33,6 +34,8 @@ class EventsController < ApplicationController
       edit = true
     end
     if edit
+      @event.account_id = current_user.account_id
+      @event.owner_id = current_user.id
       @event.save
       redirect_to :action => 'edit', :id => @event.id
     end

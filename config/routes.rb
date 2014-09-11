@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users
+  
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
   resources :events
 
   root 'calendar#main'
   
   get 'data' => 'calendar#data'
+  get 'calendar/new' => 'calendar#new'
+  post 'calendar/create' => 'calendar#create'
+  get 'calendar/edit' => 'calendar#edit'
+  post 'calendar/update' => 'calendar#update'
+  
+  get 'setup' => 'setup#show'
+  post 'setup' => 'setup#complete'
   
   
   # The priority is based upon order of creation: first created -> highest priority.

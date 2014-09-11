@@ -1,6 +1,6 @@
 development: &development
-  blog_post_template: ""
-  tweet_template: ""
+  small_blog_post_template: "[{\"type\":\"DayOfWeek\",\"schedule\":[2,4]}]"
+  small_tweet_template: "[{\"type\":\"DayOfWeek\",\"schedule\":[1,2,3,4,5]},{\"type\":\"DayOfWeek\",\"schedule\":[1,2,3,4,5]},{\"type\":\"DayOfWeek\",\"schedule\":[1,2,3,4,5]}]"
   
 test:
   <<: *development
