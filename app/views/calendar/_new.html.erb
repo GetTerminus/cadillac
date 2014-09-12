@@ -1,7 +1,7 @@
 <div class="ibox">
   <div class="ibox-title">
     <div class="close-action"><a href="javascript:$('.edit-popup').hide();$('#edit-container').hide();">&#xf00d;</a></div>
-    <h5>Complete <%= recurrence.event_count > 1 ? recurrence.event_count : '' %> <%= recurrence.event_class_name %><%= recurrence.event_count > 1 ? 's' : '' %> for <%= Date.parse(date).strftime("%A, %B %e") %></h5>
+    <h5>Complete <%= recurrence.event_count > 1 ? "#{recurrence.event_count} #{(Object.const_get recurrence.event_class_name).plural_name}" : (Object.const_get recurrence.event_class_name).display_name %> for <%= Date.parse(date).strftime("%A, %B %e") %></h5>
   </div>
   <div class="ibox-content">
   <%= form_tag(calendar_create_path(), :method => :post, class: "form") do %>

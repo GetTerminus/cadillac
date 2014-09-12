@@ -1,14 +1,14 @@
 <div class="ibox">
   <div class="ibox-title">
     <div class="close-action"><a href="javascript:$('.edit-popup').hide();$('#edit-container').hide();">&#xf00d;</a></div>
-    <h5>New Content Piece for <%= Date.parse(date).strftime("%A, %B %e") %></h5>
+    <h5>New Content Record for <%= Date.parse(date).strftime("%A, %B %e") %></h5>
   </div>
   <div class="ibox-content">
   <%= form_tag(calendar_create_event_path(), :method => :post, class: "form") do %>
     <%= hidden_field_tag "date", date %>
     
     <div class="form-group">
-      <label>Type</label>
+      <label>Media Type</label>
       <%= select_tag :type, "<option value='BlogPost'>Blog Post</option><option value='Tweet'>Tweet</option>".html_safe, class: "form-control" %>
     </div>
     <div class="form-group">
@@ -16,7 +16,7 @@
       <%= text_area_tag :description, nil, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= submit_tag :save, class: "btn btn-sm btn-primary" %>
+      <%= submit_tag :save, class: "btn btn-primary" %>
     </div>  
   <% end %>
   </div>

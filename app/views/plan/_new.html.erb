@@ -1,0 +1,62 @@
+<div class="ibox">
+  <div class="ibox-title">
+    <div class="close-action"><a href="javascript:$('.edit-popup').hide();$('#edit-container').hide();">&#xf00d;</a></div>
+    <h5>Add Content to the Plan</h5>
+  </div>
+  <div class="ibox-content">
+  <%= form_tag(plan_create_path(), :method => :post, class: "form") do %>
+    <div class="form-group">
+      <label>Media Type</label>
+      <%= select_tag :event_type, "<option value='BlogPost'>Blog Post</option><option value='Tweet'>Tweet</option>".html_safe, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Repeats</label>
+      <%= select_tag :recurrence_type, "<option value='DayOfWeek'>Weekly</option><option value='DayOfMonth'>Monthly</option>".html_safe, class: "form-control" %>
+    </div>
+    
+    <div class="repeat-options weekly-options form-group">
+      <label>Week Days</label><br>
+      <%= check_box_tag :sunday %> Sun
+      &nbsp;&nbsp;
+      <%= check_box_tag :monday %> Mon
+      &nbsp;&nbsp;
+      <%= check_box_tag :tuesday %> Tue
+      &nbsp;&nbsp;
+      <%= check_box_tag :wednesday %> Wed
+      &nbsp;&nbsp;
+      <%= check_box_tag :thursday %> Thu
+      &nbsp;&nbsp;
+      <%= check_box_tag :friday %> Fri
+      &nbsp;&nbsp;
+      <%= check_box_tag :saturday %> Sat
+    </div>
+    
+    <div class="repeat-options monthly-options form-group" style="display:none;">
+      <label>Day of the Month</label>
+      <%= number_field_tag :month_day, nil, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+      <label>Number of Content Items</label>
+      <%= number_field_tag :event_count, nil, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="complete-button btn btn-primary">
+        Add to Plan
+      </button>
+    </div>  
+  <% end %>
+  </div>
+</div>
+<script>
+$(document).ready(function() {
+  $('#recurrence_type').change(function() {
+    $('.repeat-options').hide();
+    if ($('#recurrence_type option:selected').val() == "DayOfWeek") {
+      $('.weekly-options').show();
+    } else if ($('#recurrence_type option:selected').val() == "DayOfMonth") {
+      $('.monthly-options').show();
+    }
+  });
+});
+</script>

@@ -1,4 +1,6 @@
 function loadNewEventPopup(date) {
+  $('.edit-popup').hide();
+  $('.edit-popup').empty();
   $.ajax({
       url: "/calendar/new_event?date=" + date.format(),
       context: document.body,
@@ -17,6 +19,7 @@ $(document).ready(function() {
         },
         eventClick: function(event) {
             $('.edit-popup').hide();
+            $('.edit-popup').empty();
             if (event.url) {
                 $.ajax({
                     url: event.url,

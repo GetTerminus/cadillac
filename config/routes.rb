@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   post 'calendar/create_event' => 'calendar#create_event'
   get 'calendar/edit' => 'calendar#edit'
   post 'calendar/update' => 'calendar#update'
-  
+  get 'plan/new' => 'plan#new'
+  post 'plan/create' => 'plan#create'
+  get 'plan/edit' => 'plan#edit'
+  post 'plan/update' => 'plan#update'
+  get 'plan/remove' => 'plan#remove'
   get 'setup' => 'setup#show'
   post 'setup' => 'setup#complete'
   

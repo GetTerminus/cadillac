@@ -1,0 +1,4 @@
+<div id='new_recurrence' class='edit-popup'></div>
+<% current_user.account.recurrences.each do |recurrence| %>
+<div id='recurrence_<%= recurrence.id %>' class='edit-popup'></div>
+<% end %>

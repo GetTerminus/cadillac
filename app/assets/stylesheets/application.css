@@ -50,4 +50,11 @@ body {
   background: none !important;
   padding-bottom: 10px;
 }
-
+#edit-container {
+  z-index: 100;
+  position: absolute;
+  top: 30%;
+  left: 33%;
+  width: 500px;
+  height: 400px;
+}
