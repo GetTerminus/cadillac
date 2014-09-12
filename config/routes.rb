@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'data' => 'calendar#data'
   get 'calendar/new' => 'calendar#new'
   post 'calendar/create' => 'calendar#create'
+  get 'calendar/new_event' => 'calendar#new_event'
+  post 'calendar/create_event' => 'calendar#create_event'
   get 'calendar/edit' => 'calendar#edit'
   post 'calendar/update' => 'calendar#update'
   

@@ -48,6 +48,29 @@ class CalendarController < ApplicationController
     end
   end
   
+  def new_event
+    @date = params[:date]
+    @container = "new_#{@date}"
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def create_event
+    @event = (Object.const_get params[:type]).new
+    date = Date.parse(params[:date])
+    @event.start_at = date
+    @event.end_at = date
+    @event.account_id = current_user.account_id
+    @event.owner_id = current_user.id
+    @event.title = params[:title]
+    @event.description = params[:description]
+    @event.publish_url = params[:publish_url]
+    @event.save
+    #TODO: to correct month
+    redirect_to root_path
+  end
+  
   def edit
     @event = Event.find(params[:event_id])
     @date = params[:date]

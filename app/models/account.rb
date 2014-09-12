@@ -1,9 +1,10 @@
 class Account < ActiveRecord::Base
   has_many :users
+  has_many :recurrences
   
   def load_recurrence_templates
     # clear existing recurrences
-    Recurrence.where(:account_id => self.id).destroy_all
+    self.recurrences.destroy_all
     # load from templates
     blog_templates = JSON.parse(TEMPLATES['small_blog_post_template'])
     blog_templates.each do |template|
@@ -11,6 +12,7 @@ class Account < ActiveRecord::Base
       @recurrence.account_id = self.id
       @recurrence.event_class_name = BlogPost.to_s
       @recurrence.schedule = template['schedule'].to_json
+      @recurrence.event_count = template['count']
       @recurrence.start_at = Date.today
       @recurrence.save
     end
@@ -20,6 +22,7 @@ class Account < ActiveRecord::Base
       @recurrence.account_id = self.id
       @recurrence.event_class_name = Tweet.to_s
       @recurrence.schedule = template['schedule'].to_json
+      @recurrence.event_count = template['count']
       @recurrence.start_at = Date.today
       @recurrence.save
     end

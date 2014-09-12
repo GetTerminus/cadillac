@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  layout "blank"
   
   def create
     build_resource(sign_up_params)

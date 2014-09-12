@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cadillac</title>
+  <title>ContentCaddy</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-    <%= link_to("Logout", destroy_user_session_path, :method => :delete)  %> 
-  <% end %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
+  <div id="wrapper">
+    <% if current_user %>
+    <nav class="navbar-default navbar-static-side" role="navigation">
+          <div class="sidebar-collapse">
+              <ul class="nav" id="side-menu">
+                  <li class="nav-header">
+                      <img alt="Caddy" class="logo" src="/assets/caddy.png">
+                      <div class="dropdown profile-element">
+                          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span class="clear"><span class="block m-t-xs"><h2><%= current_user.account.name %></h2></span></span></a>
+                          <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                              <li><a href="#">Profile</a></li>
+                              <li class="divider"></li>
+                              <li><%= link_to("Logout", destroy_user_session_path, :method => :delete) %></li>
+                          </ul>
+                      </div>
+                  </li>
+                  <li id="plan" class="active">
+                    <%= render :partial => 'plan/show' %>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">My Statistics</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                      <li><a href="#">Stat 1</a></li>
+                      <li><a href="#">Stat 2</a></li>
+                    </ul>
+                  </li>
+
+              </ul>
+
+          </div>
+    </nav>
+    <% end %>
+    <div id="page-wrapper" class="gray-bg">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

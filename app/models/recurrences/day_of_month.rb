@@ -13,4 +13,9 @@ class DayOfMonth < Recurrence
     return @events
   end
   
+  def description 
+    days_of_month = JSON.parse(self.schedule)
+    self.event_count.to_s + " " + (self.event_count > 1 ? (Object.const_get self.event_class_name).plural_name : (Object.const_get self.event_class_name).display_name) + " on " + (days_of_month.count > 1 ? "Days #{days_of_month.to_s}" : "Day #{days_of_month[0]}")
+  end
+  
 end

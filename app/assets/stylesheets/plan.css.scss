@@ -1,0 +1,25 @@
+// Place all the styles related to the Plan controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.plan-item {
+  color: #ffffff;
+  padding: 7px 10px 7px 10px;
+  padding-left: 52px;
+  font-weight: 600;
+}
+.new-plan-item {
+  padding-top: 0px !important; 
+  padding-bottom: 0px !important; 
+  padding-left: 4px !important; 
+  padding-right: 4px !important; 
+  color: white !important;
+}
+.plan-item-edit {
+  margin-left: 10px;
+  padding-top: 0px !important; 
+  padding-bottom: 0px !important; 
+  padding-left: 4px !important; 
+  padding-right: 4px !important; 
+  color: white !important;
+}

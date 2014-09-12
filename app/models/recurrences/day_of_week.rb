@@ -13,4 +13,30 @@ class DayOfWeek < Recurrence
     return @events
   end
   
+  def description 
+    self.event_count.to_s + " " + (self.event_count > 1 ? (Object.const_get self.event_class_name).plural_name : (Object.const_get self.event_class_name).display_name) + " per Day " + short_days_string
+  end
+  
+  private
+  
+  def short_days_string
+    result = "["
+    days_of_week = JSON.parse(self.schedule)
+    days_of_week.each_with_index do |day_of_week, index|
+      if index > 0
+        result += ","
+      end
+      result += short_day_of_week_name(day_of_week)
+    end
+    result += "]"
+  end
+    
+  def day_of_week_name(day_of_week)
+    ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][day_of_week]
+  end
+    
+  def short_day_of_week_name(day_of_week)
+    ["Su","M","Tu","W","Th","F","Sa"][day_of_week]
+  end
+  
 end

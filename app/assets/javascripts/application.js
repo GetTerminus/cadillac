@@ -17,3 +17,5 @@
 //= require ../../../vendor/assets/javascripts/moment.min
 //= require ../../../vendor/assets/javascripts/bootstrap.min
 //= require ../../../vendor/assets/javascripts/fullcalendar
+//= require ../../../vendor/assets/javascripts/jquery.metisMenu
+//= require ../../../vendor/assets/javascripts/inspinia

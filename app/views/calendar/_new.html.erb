@@ -1,7 +1,7 @@
 <div class="ibox">
   <div class="ibox-title">
-    <div class="close-action"><a href="javascript:$('.edit-popup').hide();$('#edit-container').hide();">x</a></div>
-    Complete <%= recurrence.event_class_name %> for <%= date %>
+    <div class="close-action"><a href="javascript:$('.edit-popup').hide();$('#edit-container').hide();">&#xf00d;</a></div>
+    <h5>Complete <%= recurrence.event_count > 1 ? recurrence.event_count : '' %> <%= recurrence.event_class_name %><%= recurrence.event_count > 1 ? 's' : '' %> for <%= Date.parse(date).strftime("%A, %B %e") %></h5>
   </div>
   <div class="ibox-content">
   <%= form_tag(calendar_create_path(), :method => :post, class: "form") do %>
@@ -9,19 +9,14 @@
     <%= hidden_field_tag "date", date %>
 
     <div class="form-group">
-      <label>Title</label>
-      <%= text_field_tag :title, nil, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <label>Description</label>
+      <label>Notes</label>
       <%= text_area_tag :description, nil, class: "form-control" %>
     </div>
+
     <div class="form-group">
-      <label>Publish URL</label>
-      <%= text_field_tag :publish_url, nil, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= submit_tag :submit, class: "btn btn-sm btn-primary" %>
+      <button type="submit" class="complete-button btn btn-primary">
+        <i class="fa fa-check-square-o"></i> Complete
+      </button>
     </div>  
   <% end %>
   </div>

@@ -1,0 +1,11 @@
+<a href="/"><i class="fa fa-th-list"></i> <span class="nav-label">My Media Plan</span> <span class="fa arrow"></span></a>
+<ul class="nav nav-second-level collapse in">
+  <% current_user.account.recurrences.each do |recurrence| %>
+  <li>
+    <div class="plan-item"><%= recurrence.description %> <a href="" class="plan-item-edit btn btn-xs btn-primary"><span class="fa fa-cogs"></span> edit</a></div>
+  </li>
+  <% end %>
+  <li>
+    <div class="plan-item"><a href="" class="new-plan-item btn btn-xs btn-primary">+ new</a></div>
+  </li>
+</ul>

@@ -1,0 +1,3 @@
+$("#<%= @container %>").html("<%= escape_javascript(render partial: 'new_event', locals: { date: @date } ) %>");
+$("#<%= @container %>").show();
+$('#edit-container').show();

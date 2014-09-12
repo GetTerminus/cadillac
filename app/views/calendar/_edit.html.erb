@@ -1,30 +1,17 @@
 <div class="ibox">
   <div class="ibox-title">
-    <div class="close-action"><a href="javascript:$('.edit-popup').hide();$('#edit-container').hide();">x</a></div>
-    Edit <%= event.class.name %> for <%= date %>
+    <div class="close-action"><a href="javascript:$('.edit-popup').hide();$('#edit-container').hide();">&#xf00d;</a></div>
+    <h5>Edit <%= event.class.name %> for <%= Date.parse(date).strftime("%A, %B %e") %></h5>
   </div>
   <div class="ibox-content">
   <%= form_tag(calendar_update_path(), :method => :post, class: "form") do %>
     <%= hidden_field_tag "event_id", event.id %>
-
     <div class="form-group">
-      <label>Title</label>
-      <%= text_field_tag :title, event.title, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <label>Description</label>
+      <label>Notes</label>
       <%= text_area_tag :description, event.description, class: "form-control" %>
     </div>
     <div class="form-group">
-      <label>Publish URL</label>
-      <%= text_field_tag :publish_url, event.publish_url, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <label>Date</label>
-      <%= date_select :date, :part, selected: event.start_at, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= submit_tag :submit, class: "btn btn-sm btn-primary" %>
+      <%= submit_tag :save, class: "btn btn-sm btn-primary" %>
     </div>
   <% end %>
   </div>
