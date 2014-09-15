@@ -25,6 +25,10 @@
   background-color: #d6d6d6 !important;
   border: 1px solid #d6d6d6 !important;
 }
+.missed-recurrence {
+  background-color: #ce0909 !important;
+  border: 1px solid #ce0909 !important;
+}
 .event {
   
 }
@@ -39,6 +43,11 @@
   background-size: 16px 16px;
   background-repeat: no-repeat;
   background-position: right top;
+}
+.linkedin_post:before {
+  content: "\f000";
+  font-family: FontAwesome; 
+  color: white;
 }
 .recurrence:hover {
   background-color: #000 !important; 

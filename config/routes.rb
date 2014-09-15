@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'registrations', sessions: 'sessions' }
 
   resources :events
 
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'calendar/create_event' => 'calendar#create_event'
   get 'calendar/edit' => 'calendar#edit'
   post 'calendar/update' => 'calendar#update'
+  get 'calendar/remove' => 'calendar#remove'
   get 'plan/new' => 'plan#new'
   post 'plan/create' => 'plan#create'
   get 'plan/edit' => 'plan#edit'

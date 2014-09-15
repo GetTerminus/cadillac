@@ -92,4 +92,12 @@ class CalendarController < ApplicationController
     #TODO: to correct month
     redirect_to root_path
   end
+  
+  def remove
+    event = Event.find(params[:event_id])
+    if !event.nil?
+      event.delete
+    end
+    redirect_to root_path
+  end
 end

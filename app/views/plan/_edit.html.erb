@@ -8,7 +8,7 @@
     <%= hidden_field_tag "recurrence_id", recurrence.id %>
     <div class="form-group">
       <label>Media Type</label>
-      <%= select_tag :type, "<option value='BlogPost'>Blog Post</option><option value='Tweet'>Tweet</option>".html_safe, class: "form-control" %>
+      <%= select_tag :type, recurrence_event_options(recurrence), class: "form-control" %>
     </div>
     <div class="form-group">
       <label>Repeats</label>

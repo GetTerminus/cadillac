@@ -6,7 +6,7 @@ class DayOfMonth < Recurrence
     date = start_date
     while date <= end_date
       if days_of_month.include?(date.mday)
-        @events << {:id => self.id, :start_date => date, :end_date => date, :event_class_name => self.event_class_name}
+        @events << {:id => self.id, :start_date => date, :end_date => date, :event_class_name => self.event_class_name, :event_count => self.event_count}
       end
       date = date + 1.day
     end

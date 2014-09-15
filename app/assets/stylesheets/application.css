@@ -23,7 +23,7 @@ body {
   text-align: center;
   color: white;
   padding-bottom: 10px !important;
-  margin-bottom: 10px; !important;
+  margin-bottom: 10px !important;
 }
 .notice {
   text-align: center;
@@ -51,7 +51,7 @@ body {
   padding-bottom: 10px;
 }
 #edit-container {
-  z-index: 100;
+  z-index: 101;
   position: absolute;
   top: 30%;
   left: 33%;

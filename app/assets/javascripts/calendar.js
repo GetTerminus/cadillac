@@ -36,13 +36,14 @@ $(document).ready(function() {
         },
         dayRender: function(date, cell) {
           $('#edit-container').append("<div id='new_" + date.format() + "' class='edit-popup'></div>");
-          //cell.prepend("<div class='add-event-button btn btn-xs btn-primary'>+</div>");
-        },
-        dayClick: function(date, allDay, jsEvent, view) {
+        }
+      /*
+        ,dayClick: function(date, allDay, jsEvent, view) {
           if (allDay) {
             loadNewEventPopup(date);
           }
         }
+      */
     });
 
 });

@@ -7,7 +7,7 @@
   <%= form_tag(plan_create_path(), :method => :post, class: "form") do %>
     <div class="form-group">
       <label>Media Type</label>
-      <%= select_tag :event_type, "<option value='BlogPost'>Blog Post</option><option value='Tweet'>Tweet</option>".html_safe, class: "form-control" %>
+      <%= select_tag :event_type, event_options, class: "form-control" %>
     </div>
     <div class="form-group">
       <label>Repeats</label>
