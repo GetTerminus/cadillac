@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915013259) do
+ActiveRecord::Schema.define(version: 20140916142312) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140915013259) do
     t.integer  "assignee_id"
     t.integer  "event_count",      default: 1, null: false
     t.string   "instructions"
+    t.integer  "repeat_term",      default: 1, null: false
   end
 
   create_table "users", force: true do |t|

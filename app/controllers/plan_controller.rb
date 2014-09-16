@@ -28,6 +28,7 @@ class PlanController < ApplicationController
       recurrence.schedule = schedule.to_json
       recurrence.event_count = params[:event_count]
       recurrence.event_class_name = params[:event_type]
+      recurrence.repeat_term = params[:repeats]
       recurrence.instructions = params[:instructions]
       recurrence.save
     end

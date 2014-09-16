@@ -8,6 +8,9 @@ class DayOfWeek < Recurrence
       if date >= start_at && days_of_week.include?(date.wday)
         @events << {:id => self.id, :start_date => date, :end_date => date, :event_class_name => self.event_class_name, :event_count => self.event_count}
       end
+      if self.repeat_term > 1 && date.wday == 6
+        date = date + ((self.repeat_term - 1) * 7).days
+      end
       date = date + 1.day
     end
     return @events
