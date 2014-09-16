@@ -82,12 +82,12 @@ class CalendarController < ApplicationController
   
   def update
     @event = Event.find(params[:event_id])
-    date = Date.civil(params[:date][:"part(1i)"].to_i,params[:date][:"part(2i)"].to_i,params[:date][:"part(3i)"].to_i) 
-    @event.start_at = date
-    @event.end_at = date
-    @event.title = params[:title]
+    #date = Date.civil(params[:date][:"part(1i)"].to_i,params[:date][:"part(2i)"].to_i,params[:date][:"part(3i)"].to_i) 
+    #@event.start_at = date
+    #@event.end_at = date
+    #@event.title = params[:title]
     @event.description = params[:description]
-    @event.publish_url = params[:publish_url]
+    #@event.publish_url = params[:publish_url]
     @event.save
     #TODO: to correct month
     redirect_to root_path

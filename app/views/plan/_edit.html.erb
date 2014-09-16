@@ -51,7 +51,7 @@
       <button type="submit" class="complete-button btn btn-primary" style="float:left;">
         Save Changes
       </button>
-      <div class="remove-button btn btn-primary" style="float:right;"><%= link_to "Remove", plan_remove_path(:recurrence_id => recurrence.id) %></div>
+      <div class="remove-button btn btn-primary" style="float:right;"><%= link_to "Remove", plan_remove_path(:recurrence_id => recurrence.id), method: :post %></div>
       <div style="clear:both;"></div>
     </div>  
   <% end %>

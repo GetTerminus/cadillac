@@ -1,8 +1,8 @@
 class GplusPost < Event
   def self.display_name
-    "Google+ Post"
+    "G+ Post"
   end
   def self.plural_name
-    "Google+ Posts"
+    "G+ Posts"
   end
 end
