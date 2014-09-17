@@ -19,3 +19,4 @@
 //= require ../../../vendor/assets/javascripts/fullcalendar
 //= require ../../../vendor/assets/javascripts/jquery.metisMenu
 //= require ../../../vendor/assets/javascripts/inspinia
+//= require ../../../vendor/assets/javascripts/bootstrap-datepicker

@@ -20,6 +20,11 @@ class DayOfWeek < Recurrence
     self.event_count.to_s + " " + (self.event_count > 1 ? (Object.const_get self.event_class_name).plural_name : (Object.const_get self.event_class_name).display_name) + " " + short_days_string
   end
   
+  def day_of_week_scheduled(day_of_week)
+    days_of_week = JSON.parse(self.schedule)
+    return days_of_week.include?(day_of_week)
+  end
+  
   private
   
   def short_days_string
@@ -32,14 +37,6 @@ class DayOfWeek < Recurrence
       result += short_day_of_week_name(day_of_week)
     end
     result += "]"
-  end
-    
-  def day_of_week_name(day_of_week)
-    ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][day_of_week]
-  end
-    
-  def short_day_of_week_name(day_of_week)
-    ["Su","M","Tu","W","Th","F","Sa"][day_of_week]
   end
   
 end

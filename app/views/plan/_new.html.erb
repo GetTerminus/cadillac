@@ -32,19 +32,32 @@
       <br>
       <br>
       <label>Repeats Every</label>
-      <%= select_tag :repeats, "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option>".html_safe %>
+      <%= select_tag :repeats_weeks, "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option>".html_safe %>
       <label>Week(s)</label>
     </div>
     
     <div class="repeat-options monthly-options form-group" style="display:none;">
-      <label>Day of the Month</label>
-      <%= number_field_tag :month_day, nil, class: "form-control" %>
+      <label>Repeats By</label>
+      <div class="field">
+        <%= radio_button_tag :repeats_by, :month_day, :checked => true %>
+        <label>day of the month</label>
+        &nbsp;&nbsp;<%= radio_button_tag :repeats_by, :week_day %>
+        <label>day of the week</label>
+      </div>
+      <label>Starts On</label>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><%= text_field_tag :month_date, nil, class: "form-control" %>
+      </div>
+      <br>
+      <label>Repeats Every</label>
+      <%= select_tag :repeats_months, "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option>".html_safe %>
+      <label>Month(s)</label>
     </div>
     
     
     <div class="form-group">
       <label id="event_count_label">Number of <%= Tweet.plural_name %></label>
-      <%= number_field_tag :event_count, nil, class: "form-control" %>
+      <%= number_field_tag :event_count, 1, class: "form-control" %>
     </div>
     
     <div class="form-group">
@@ -69,6 +82,13 @@ $(document).ready(function() {
     } else if ($('#recurrence_type option:selected').val() == "DayOfMonth") {
       $('.monthly-options').show();
     }
+  });
+  $('#month_date').datepicker({
+    todayBtn: "linked",
+    keyboardNavigation: false,
+    forceParse: false,
+    autoclose: true,
+    format: "DD mm/dd/yyyy"
   });
 });
 $('#event_type').change(function() {

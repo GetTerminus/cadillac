@@ -8,33 +8,55 @@
     <%= hidden_field_tag "recurrence_id", recurrence.id %>
     <div class="form-group">
       <label>Media Type</label>
-      <%= select_tag :type, recurrence_event_options(recurrence), class: "form-control" %>
+      <%= select_tag :event_type, recurrence_event_options(recurrence), class: "form-control" %>
     </div>
     <div class="form-group">
       <label>Repeats</label>
-      <%= select_tag :recurrence_type, "<option value='DayOfWeek' #{'DayOfWeek'.eql?(recurrence.event_class_name) ? 'selected' : ''}>Weekly</option><option value='DayOfMonth' #{'DayOfMonth'.eql?(recurrence.event_class_name) ? 'selected' : ''}>Monthly</option>".html_safe, class: "form-control" %>
+      <%= select_tag :recurrence_type, "<option value='DayOfWeek' #{'DayOfWeek'.eql?(recurrence.type) ? 'selected' : ''}>Weekly</option><option value='DayOfMonth' #{'DayOfMonth'.eql?(recurrence.type) ? 'selected' : ''}>Monthly</option>".html_safe, class: "form-control" %>
     </div>
     
-    <div class="repeat-options weekly-options form-group" <%= 'DayOfWeek'.eql?(recurrence.event_class_name) ? 'style="display:none;"' : '' %>>
+    <div class="repeat-options weekly-options form-group" <%= !'DayOfWeek'.eql?(recurrence.type) ? 'style="display:none;"'.html_safe : '' %>>
       <label>Week Days</label><br>
-      <%= check_box_tag :sunday %> Sun
+      <%= check_box_tag :sunday, 'yes', recurrence.day_of_week_scheduled(0) ? true : nil %> Sun
       &nbsp;&nbsp;
-      <%= check_box_tag :monday %> Mon
+      <%= check_box_tag :monday, 'yes', recurrence.day_of_week_scheduled(1) ? true : nil %> Mon
       &nbsp;&nbsp;
-      <%= check_box_tag :tuesday %> Tue
+      <%= check_box_tag :tuesday, 'yes', recurrence.day_of_week_scheduled(2) ? true : nil %> Tue
       &nbsp;&nbsp;
-      <%= check_box_tag :wednesday %> Wed
+      <%= check_box_tag :wednesday, 'yes', recurrence.day_of_week_scheduled(3) ? true : nil %> Wed
       &nbsp;&nbsp;
-      <%= check_box_tag :thursday %> Thu
+      <%= check_box_tag :thursday, 'yes', recurrence.day_of_week_scheduled(4) ? true : nil %> Thu
       &nbsp;&nbsp;
-      <%= check_box_tag :friday %> Fri
+      <%= check_box_tag :friday, 'yes', recurrence.day_of_week_scheduled(5) ? true : nil %> Fri
       &nbsp;&nbsp;
-      <%= check_box_tag :saturday %> Sat
+      <%= check_box_tag :saturday, 'yes', recurrence.day_of_week_scheduled(6) ? true : nil %> Sat
+      <br>
+      <br>
+      <label>Repeats Every</label>
+      <%= select_tag :repeats_weeks, "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option>".html_safe %>
+      <label>Week(s)</label>
     </div>
     
-    <div class="repeat-options monthly-options form-group" <%= 'DayOfMonth'.eql?(recurrence.event_class_name) ? 'style="display:none;"' : '' %>>
-      <label>Day of the Month</label>
-      <%= number_field_tag :month_day, nil, class: "form-control" %>
+    <div class="repeat-options monthly-options form-group" <%= !'DayOfMonth'.eql?(recurrence.type) ? 'style="display:none;"'.html_safe : '' %>>
+      <label>Repeats By</label>
+      <div class="field">
+        <% 
+            schedule_element = JSON.parse(recurrence.schedule).first
+            repeats_by_week = schedule_element.kind_of?(Array)
+        %>
+        <%= radio_button_tag :repeats_by, :month_day, !repeats_by_week ? {:checked => true} : nil %>
+        <label>day of the month</label>
+        &nbsp;&nbsp;<%= radio_button_tag :repeats_by, :week_day, repeats_by_week ? {:checked => true} : nil %>
+        <label>day of the week</label>
+      </div>
+      <label>Starts On</label>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><%= text_field_tag :month_date, 'DayOfMonth'.eql?(recurrence.type) ? recurrence.start_at.strftime("%A %m/%d/%Y") : nil, class: "form-control" %>
+      </div>
+      <br>
+      <label>Repeats Every</label>
+      <%= select_tag :repeats_months, "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option>".html_safe %>
+      <label>Month(s)</label>
     </div>
     
     <div class="form-group">
@@ -67,10 +89,17 @@ $(document).ready(function() {
       $('.monthly-options').show();
     }
   });
+  $('#month_date').datepicker({
+    todayBtn: "linked",
+    keyboardNavigation: false,
+    forceParse: false,
+    autoclose: true,
+    format: "DD mm/dd/yyyy"
+  });
 });
 $('#type').change(function() {
   var str = "";
-  $("#type option:selected").each(function() {
+  $("#event_type option:selected").each(function() {
     str += $( this ).text() + "s ";
   });
   $('#event_count_label').html('Number of ' + str);
