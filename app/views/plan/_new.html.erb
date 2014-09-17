@@ -43,7 +43,7 @@
     
     
     <div class="form-group">
-      <label>Number of Content Items</label>
+      <label id="event_count_label">Number of <%= Tweet.plural_name %></label>
       <%= number_field_tag :event_count, nil, class: "form-control" %>
     </div>
     
@@ -70,5 +70,12 @@ $(document).ready(function() {
       $('.monthly-options').show();
     }
   });
+});
+$('#event_type').change(function() {
+  var str = "";
+  $("#event_type option:selected").each(function() {
+    str += $( this ).text() + "s ";
+  });
+  $('#event_count_label').html('Number of ' + str);
 });
 </script>

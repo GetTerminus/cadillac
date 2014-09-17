@@ -17,7 +17,7 @@ class DayOfWeek < Recurrence
   end
   
   def description 
-    self.event_count.to_s + " " + (self.event_count > 1 ? (Object.const_get self.event_class_name).plural_name : (Object.const_get self.event_class_name).display_name) + " per Day " + short_days_string
+    self.event_count.to_s + " " + (self.event_count > 1 ? (Object.const_get self.event_class_name).plural_name : (Object.const_get self.event_class_name).display_name) + " " + short_days_string
   end
   
   private

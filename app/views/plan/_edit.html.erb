@@ -38,7 +38,7 @@
     </div>
     
     <div class="form-group">
-      <label>Number of Content Items</label>
+      <label id="event_count_label">Number of <%= (Object.const_get recurrence.event_class_name).plural_name %></label>
       <%= number_field_tag :event_count, recurrence.event_count, class: "form-control" %>
     </div>
     
@@ -67,5 +67,12 @@ $(document).ready(function() {
       $('.monthly-options').show();
     }
   });
+});
+$('#type').change(function() {
+  var str = "";
+  $("#type option:selected").each(function() {
+    str += $( this ).text() + "s ";
+  });
+  $('#event_count_label').html('Number of ' + str);
 });
 </script>
