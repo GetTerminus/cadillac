@@ -8,6 +8,7 @@ module CalendarHelper
     result += "<option value='#{GplusPost.to_s}'>#{GplusPost.display_name}</option>"
     result += "<option value='#{PressRelease.to_s}'>#{PressRelease.display_name}</option>"
     result += "<option value='#{WhitePaper.to_s}'>#{WhitePaper.display_name}</option>"
+    result += "<option value='#{Infographic.to_s}'>#{Infographic.display_name}</option>"
     return result.html_safe
   end
   def recurrence_event_options(recurrence)
@@ -19,6 +20,7 @@ module CalendarHelper
     result += "<option value='#{GplusPost.to_s}' #{GplusPost.to_s.eql?(recurrence.event_class_name) ? 'selected' : ''}>#{GplusPost.display_name}</option>"
     result += "<option value='#{PressRelease.to_s}' #{PressRelease.to_s.eql?(recurrence.event_class_name) ? 'selected' : ''}>#{PressRelease.display_name}</option>"
     result += "<option value='#{WhitePaper.to_s}' #{WhitePaper.to_s.eql?(recurrence.event_class_name) ? 'selected' : ''}>#{WhitePaper.display_name}</option>"
+    result += "<option value='#{Infographic.to_s}' #{Infographic.to_s.eql?(recurrence.event_class_name) ? 'selected' : ''}>#{Infographic.display_name}</option>"
     return result.html_safe
   end
 end

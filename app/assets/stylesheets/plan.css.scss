@@ -27,4 +27,8 @@
   a {
     color: white; 
   }
+  a:hover {
+    color: white !important; 
+    background: none !important; 
+  }
 }

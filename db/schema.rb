@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916142312) do
+ActiveRecord::Schema.define(version: 20140916182343) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "initialized"
+  end
+
+  create_table "content_details", force: true do |t|
+    t.string   "publish_url"
+    t.text     "description"
+    t.boolean  "is_educational"
+    t.boolean  "is_promotional"
+    t.boolean  "is_conversational"
+    t.integer  "related_content_id"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "events", force: true do |t|
