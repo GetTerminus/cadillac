@@ -33,7 +33,7 @@
       <br>
       <br>
       <label>Repeats Every</label>
-      <%= select_tag :repeats_weeks, "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option>".html_safe %>
+      <%= select_tag :repeats_weeks, recurrence_repeat_term_options(recurrence).html_safe %>
       <label>Week(s)</label>
     </div>
     
@@ -55,7 +55,7 @@
       </div>
       <br>
       <label>Repeats Every</label>
-      <%= select_tag :repeats_months, "<option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option>".html_safe %>
+      <%= select_tag :repeats_months, recurrence_repeat_term_options(recurrence).html_safe %>
       <label>Month(s)</label>
     </div>
     

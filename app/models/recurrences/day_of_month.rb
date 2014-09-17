@@ -12,14 +12,19 @@ class DayOfMonth < Recurrence
     else
       day_of_month = schedule_element
     end
-    date = start_date
+    date = self.start_at
     while date <= end_date
-      #TODO: should day of month that is > than max day in current month be skipped?
-      if !day_of_month.nil? && day_of_month == date.mday
-        @events << {:id => self.id, :start_date => date, :end_date => date, :event_class_name => self.event_class_name, :event_count => self.event_count}
+      if date >= start_date
+        #TODO: should day of month that is > than max day in current month be skipped?
+        if !day_of_month.nil? && day_of_month == date.mday
+          @events << {:id => self.id, :start_date => date, :end_date => date, :event_class_name => self.event_class_name, :event_count => self.event_count}
+        end
+        if !week_day.nil? && week_day == date.wday && month_week == date.week_of_month
+          @events << {:id => self.id, :start_date => date, :end_date => date, :event_class_name => self.event_class_name, :event_count => self.event_count}
+        end
       end
-      if !week_day.nil? && week_day == date.wday && month_week == date.week_of_month
-        @events << {:id => self.id, :start_date => date, :end_date => date, :event_class_name => self.event_class_name, :event_count => self.event_count}
+      if self.repeat_term > 1 && date.day == date.end_of_month.day
+        date = date + (self.repeat_term - 1).months
       end
       date = date + 1.day
     end
