@@ -1,0 +1,19 @@
+/* line 5, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/setup.css.scss */
+.setup-title {
+  text-align: center;
+}
+
+/* line 8, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/setup.css.scss */
+.setup-container {
+  width: 650px;
+  margin: 0 auto;
+}
+
+/* line 12, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/setup.css.scss */
+.template-choice {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid grey;
+  float: left;
+}

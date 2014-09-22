@@ -1,0 +1,36 @@
+/* line 5, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/plan.css.scss */
+.plan-item {
+  color: #ffffff;
+  padding: 7px 10px 7px 10px;
+  padding-left: 52px;
+  font-weight: 600;
+}
+
+/* line 11, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/plan.css.scss */
+.new-plan-item {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  color: white !important;
+}
+
+/* line 18, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/plan.css.scss */
+.plan-item-edit {
+  margin-left: 10px;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  color: white !important;
+}
+
+/* line 27, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/plan.css.scss */
+.remove-button a {
+  color: white;
+}
+/* line 30, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/plan.css.scss */
+.remove-button a:hover {
+  color: white !important;
+  background: none !important;
+}

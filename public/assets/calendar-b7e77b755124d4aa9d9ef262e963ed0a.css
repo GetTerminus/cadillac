@@ -1,0 +1,193 @@
+/* line 5, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+#calendar {
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* line 9, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.close-action {
+  float: right;
+  font-family: FontAwesome;
+  font-size: 20px;
+  margin-top: -7px;
+}
+/* line 14, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.close-action a {
+  color: #18a78a;
+}
+/* line 17, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.close-action a:hover {
+  color: #08977a !important;
+  background: none !important;
+}
+
+/* line 22, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.fc-event {
+  color: #fff !important;
+}
+
+/* line 25, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.fc-month-view .fc-time {
+  display: none;
+}
+
+/* line 28, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.recurrence {
+  background-color: #d6d6d6 !important;
+  border: 1px solid #d6d6d6 !important;
+}
+
+/* line 32, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.recurrence:hover {
+  background-color: #c6c6c6 !important;
+}
+
+/* line 35, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.missed-recurrence {
+  background-color: #ce0909 !important;
+  border: 1px solid #ce0909 !important;
+}
+
+/* line 39, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.missed-recurrence:hover {
+  background-color: #b00000 !important;
+}
+
+/* line 42, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.event {
+  background-color: #18a78a !important;
+}
+
+/* line 45, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.event:hover {
+  background-color: #08977a !important;
+}
+
+/* line 48, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.tweet {
+  background-image: url(/assets/tweet.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 54, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.blog_post {
+  background-image: url(/assets/blog_post.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 60, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.linkedin_post {
+  background-image: url(/assets/linkedin.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 66, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.facebook_post {
+  background-image: url(/assets/facebook.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 72, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.gplus_post {
+  background-image: url(/assets/google.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 78, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.infographic {
+  background-image: url(/assets/document.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 84, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.press_release {
+  background-image: url(/assets/microphone.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 90, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.white_paper {
+  background-image: url(/assets/document.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 96, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.ebook {
+  background-image: url(/assets/document.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 102, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.webinar {
+  background-image: url(/assets/document.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 108, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.video {
+  background-image: url(/assets/camera.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 114, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.guest_post {
+  background-image: url(/assets/blog_post.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 120, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.generic {
+  background-image: url(/assets/document.png) !important;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* line 129, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.add-event-button {
+  padding-top: 0px;
+  padding-bottom: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 2px;
+  font-size: 10px !important;
+  line-height: 1.3 !important;
+}
+
+/* line 139, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.edit-popup .ibox {
+  border: 1px solid grey;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* line 146, /Users/ericvass/workspace/cadillac/app/assets/stylesheets/calendar.css.scss */
+.recurrence-instructions {
+  padding-bottom: 10px;
+  font-style: italic;
+}
